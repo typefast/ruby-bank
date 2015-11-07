@@ -34,12 +34,12 @@ class BankAccount
   def print_bank_balance
     puts "#{name}'s Bank Account"
     
-    puts "Description\tAmount"
+    puts "Description".ljust(30) + "Amount".rjust(10)
     @transactions.each do |transaction|
-      puts transaction[:description] + "\t" + sprintf("%0.2f", 
-      transaction[:amount])
+      puts transaction[:description].ljust(30) + sprintf("%0.2f", 
+      transaction[:amount]).rjust(10)
     end
-    puts "Balance #{sprintf("%0.2f", balance)}"
+    puts "Balance:".ljust(30) + sprintf("%0.2f", balance).rjust(10)
   end
 end
 
