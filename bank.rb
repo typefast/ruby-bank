@@ -20,15 +20,19 @@ class BankAccount
   end
   
   def balance
-    balance = 0
+    balance = 0.0
     @transactions.each do |transaction|
       balance += transaction[:amount]
     end
     return balance
+  end
+  
+  def to_s
+    "Name: #{name}, Balance: #{sprintf("%0.2f", balance)}"
   end
 end
 
 bank_account = BankAccount.new("Richy")
 bank_account.credit("Pocket Money", 1000)
 bank_account.debit("Insurance", 300)
-puts bank_account.balance
+puts bank_account
