@@ -4,6 +4,15 @@ class BankAccount
   def initialize(name)
     @name = name
     @transactions = []
+    add_transaction("Start Balance", 0)
+  end
+  
+  def credit(description, amount)
+    add_transaction(description, amount)
+  end
+  
+  def debit(description, amount)
+    add_transaction(description, -amount)
   end
   
   def add_transaction(description, amount)
@@ -12,6 +21,6 @@ class BankAccount
 end
 
 bank_account = BankAccount.new("Richy")
-puts bank_account.inspect
-bank_account.add_transaction("pocket money", 1000)
+bank_account.credit("Pocket Money", 1000)
+bank_account.debit("Insurance", 300)
 puts bank_account.inspect
